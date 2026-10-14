@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(RevkeepTargetFramework)</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Kobb.Revkeep.Core/Kobb.Revkeep.Core.csproj" />
+    <Resource Include="../../assets/horizontal-logo-whit-studio.png" Link="Assets/logo.png" />
+    <Resource Include="../../assets/logo-revkeep.png" Link="Assets/product.png" />
+    <Resource Include="../../assets/minimize-icon.png" Link="Assets/minimize.png" />
+    <Resource Include="../../assets/close-icon.png" Link="Assets/close.png" />
+    <Resource Include="../../assets/fit-to-screen-icon.png" Link="Assets/maximize.png" />
+  </ItemGroup>
+</Project>

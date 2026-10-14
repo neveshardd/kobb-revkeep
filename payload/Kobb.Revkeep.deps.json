@@ -1,0 +1,55 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "Kobb.Revkeep/1.0.0": {
+        "dependencies": {
+          "Kobb.Revkeep.UI": "1.0.0"
+        },
+        "runtime": {
+          "Kobb.Revkeep.dll": {}
+        }
+      },
+      "Kobb.Revkeep.Core/1.0.0": {
+        "runtime": {
+          "Kobb.Revkeep.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Kobb.Revkeep.UI/1.0.0": {
+        "dependencies": {
+          "Kobb.Revkeep.Core": "1.0.0"
+        },
+        "runtime": {
+          "Kobb.Revkeep.UI.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Kobb.Revkeep/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Kobb.Revkeep.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Kobb.Revkeep.UI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

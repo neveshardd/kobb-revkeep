@@ -1,0 +1,37 @@
+{
+    "id":  "kobb-revkeep",
+    "name":  "KOBB Revkeep",
+    "version":  "0.1.4",
+    "description":  "Backups do projeto e das famílias do Revit, em um só lugar.",
+    "website":  "https://kobbstudio.com.br",
+    "thankYouUrl":  "https://kobbstudio.com.br/revkeep/obrigado",
+    "publisher":  "KOBB",
+    "kind":  "RevitAddin",
+    "iconTint":  "#888888",
+    "requiredRevitRuntime":  "10.0",
+    "usageTerms":  "Versão de testes para Revit 2026.5 com .NET 10. Atende projetos RVT locais, sem compartilhamento. O Revkeep não salva nem sincroniza o projeto. Preserva as versões antes e depois do salvamento, transfere os backups numerados com verificação de integridade e exporta as famílias quando o Revit estiver disponível. A validação em projetos reais ainda está pendente. Mantenha uma cópia independente do projeto durante os testes.",
+    "assembly":  "Kobb.Revkeep.dll",
+    "entryPoint":  "Kobb.Revkeep.App",
+    "addInId":  "6a9e9057-6ef0-4d0d-9ba7-0aa4694166c4",
+    "revitVersions":  [
+                          "2026"
+                      ],
+    "files":  [
+                  {
+                      "path":  "Kobb.Revkeep.Core.dll",
+                      "sha256":  "3D1F96D09EDCA134AD5FA074A21008660888BAC23DA621A0E1CD3CE4901F7B5F"
+                  },
+                  {
+                      "path":  "Kobb.Revkeep.deps.json",
+                      "sha256":  "56B66552F740CB2B0F810FE12F1CBB3616D3793894DA2778DF4B3919F3D10A1D"
+                  },
+                  {
+                      "path":  "Kobb.Revkeep.dll",
+                      "sha256":  "9F6D0A8969E4CEC72087041C2112D2189DA43F7118C1A13449CCB8CD36384CBD"
+                  },
+                  {
+                      "path":  "Kobb.Revkeep.UI.dll",
+                      "sha256":  "3FD039E97CF8F6E77CE4DAD8BD9BC2A36EEB867F14FADDC3ACF3885B0E316195"
+                  }
+              ]
+}

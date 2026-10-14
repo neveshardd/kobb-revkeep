@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(RevkeepTargetFramework)</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2026</RevitVersion>
+    <RevitApiDirectory Condition="'$(RevitApiDirectory)' == ''">$(ProgramW6432)/Autodesk/Revit $(RevitVersion)</RevitApiDirectory>
+    <AssemblyName>Kobb.Revkeep</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Kobb.Revkeep.UI/Kobb.Revkeep.UI.csproj" />
+    <Reference Include="RevitAPI"><HintPath>$(RevitApiDirectory)/RevitAPI.dll</HintPath><Private>false</Private><ExternallyResolved>true</ExternallyResolved></Reference>
+    <Reference Include="RevitAPIUI"><HintPath>$(RevitApiDirectory)/RevitAPIUI.dll</HintPath><Private>false</Private><ExternallyResolved>true</ExternallyResolved></Reference>
+  </ItemGroup>
+  <Target Name="ValidateRevitReferences" BeforeTargets="ResolveReferences">
+    <Error Condition="!Exists('$(RevitApiDirectory)/RevitAPI.dll')" Text="Forneça RevitApiDirectory com as DLLs oficiais do Revit $(RevitVersion)." />
+    <Error Condition="'$(RevitVersion)' != '2025' and '$(RevitVersion)' != '2026'" Text="Esta versão atende Revit 2025 e 2026." />
+  </Target>
+</Project>

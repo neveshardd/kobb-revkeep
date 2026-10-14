@@ -1,0 +1,49 @@
+<Window x:Class="Kobb.Revkeep.UI.ConfigurationWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="KOBB Revkeep" Width="668" Height="530" MinWidth="540" MinHeight="480" Background="White" WindowStartupLocation="CenterOwner" WindowStyle="None" ResizeMode="CanResize" FontFamily="Arial" FontSize="13" UseLayoutRounding="True" SnapsToDevicePixels="True" KeyboardNavigation.TabNavigation="Cycle">
+  <Window.Resources>
+    <Style x:Key="Focus" TargetType="Control">
+      <Setter Property="Template"><Setter.Value><ControlTemplate><Rectangle Margin="-3" Stroke="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" StrokeThickness="1" StrokeDashArray="2 2" /></ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="Button">
+      <Setter Property="Height" Value="28" /><Setter Property="MinWidth" Value="86" /><Setter Property="Padding" Value="12,0" /><Setter Property="Background" Value="White" /><Setter Property="Foreground" Value="Black" /><Setter Property="BorderBrush" Value="Black" /><Setter Property="BorderThickness" Value="1" /><Setter Property="FocusVisualStyle" Value="{StaticResource Focus}" /><Setter Property="Cursor" Value="Hand" />
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"><ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True" /></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Opacity" Value="0.75" /></Trigger><Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Opacity" Value="0.55" /></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="Surface" Property="Opacity" Value="0.4" /></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style TargetType="TextBox">
+      <Setter Property="Height" Value="32" /><Setter Property="Padding" Value="10,7" /><Setter Property="Background" Value="#D9D9D9" /><Setter Property="Foreground" Value="Black" /><Setter Property="CaretBrush" Value="Black" /><Setter Property="Cursor" Value="IBeam" /><Setter Property="VerticalContentAlignment" Value="Center" /><Setter Property="BorderThickness" Value="1" /><Setter Property="BorderBrush" Value="Transparent" /><Setter Property="FocusVisualStyle" Value="{StaticResource Focus}" />
+      <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+      <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="TextBox"><Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="14,0,0,14"><ScrollViewer x:Name="PART_ContentHost" Focusable="False" /></Border></ControlTemplate></Setter.Value></Setter>
+    </Style>
+    <Style x:Key="WindowButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Width" Value="40" /><Setter Property="MinWidth" Value="0" /><Setter Property="Height" Value="28" /><Setter Property="Padding" Value="0" /><Setter Property="BorderThickness" Value="0" /><Setter Property="Background" Value="Transparent" /><Setter Property="Cursor" Value="Arrow" /></Style>
+    <Style x:Key="Browse" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Height" Value="24" /><Setter Property="Padding" Value="0" /><Setter Property="BorderThickness" Value="0" /><Setter Property="FontSize" Value="11" /></Style>
+    <Style TargetType="Label"><Setter Property="FontSize" Value="11" /><Setter Property="Padding" Value="0" /><Setter Property="Margin" Value="0,0,0,5" /><Setter Property="Foreground" Value="Black" /></Style>
+  </Window.Resources>
+  <Grid Background="White">
+    <Grid.RowDefinitions><RowDefinition Height="28" /><RowDefinition Height="*" /></Grid.RowDefinitions>
+    <Grid x:Name="TitleBar" Background="#D9D9D9" MouseLeftButtonDown="TitleMouseDown">
+      <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+        <Button x:Name="MinimizeButton" Style="{StaticResource WindowButton}" TabIndex="20" Click="Minimize" AutomationProperties.Name="Minimizar" ToolTip="Minimizar"><Path Data="M 0,1 L 12,1" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" StrokeThickness="1" /></Button>
+        <Button x:Name="MaximizeButton" Style="{StaticResource WindowButton}" TabIndex="21" Click="Maximize" AutomationProperties.Name="Maximizar ou restaurar" ToolTip="Maximizar ou restaurar"><Rectangle Width="12" Height="10" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" StrokeThickness="1" /></Button>
+        <Button x:Name="CloseButton" Style="{StaticResource WindowButton}" TabIndex="22" Click="Cancel" AutomationProperties.Name="Fechar configuração" ToolTip="Fechar"><Path Data="M 0,0 L 11,11 M 11,0 L 0,11" Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" StrokeThickness="1" /></Button>
+      </StackPanel>
+    </Grid>
+    <Grid Grid.Row="1" Margin="34,12,34,30">
+      <Grid.RowDefinitions><RowDefinition Height="64" /><RowDefinition Height="26" /><RowDefinition Height="Auto" /><RowDefinition Height="*" /><RowDefinition Height="Auto" /></Grid.RowDefinitions>
+      <Image Source="/Kobb.Revkeep.UI;component/Assets/logo.png" Width="252" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality" />
+      <StackPanel Grid.Row="2">
+        <Label Content="_Nome do projeto" Target="{Binding ElementName=ProjectNameField}" />
+        <TextBox x:Name="ProjectNameField" TabIndex="0" ToolTip="Nome do projeto · Alt+N" AutomationProperties.AutomationId="project-name" AutomationProperties.Name="Nome do projeto" AutomationProperties.HelpText="Nome usado para organizar as pastas de backup. O nome do arquivo original permanece igual. Alt+N para editar." />
+        <Label Content="_Pasta base dos backups do projeto" Margin="0,18,0,5" Target="{Binding ElementName=BackupRootField}" />
+        <TextBox x:Name="BackupRootField" TabIndex="1" ToolTip="Pasta de backups do projeto · Alt+P" AutomationProperties.AutomationId="project-backup-folder" AutomationProperties.Name="Pasta dos backups do projeto" AutomationProperties.HelpText="Pasta base onde será criada Backup-NomeDoProjeto/backups. Digite o caminho completo ou escolha uma pasta. Alt+P para editar." />
+        <Button x:Name="BrowseProjectsButton" TabIndex="2" Style="{StaticResource Browse}" HorizontalAlignment="Right" Margin="0,6,0,0" Click="BrowseProjects" AutomationProperties.AutomationId="browse-project-backups" AutomationProperties.Name="Escolher pasta dos backups do projeto" AutomationProperties.HelpText="Abrir o seletor de pastas. Alt+B." ToolTip="Escolher pasta dos backups do projeto · Alt+B"><TextBlock Text="Escolher pasta" TextDecorations="Underline" /></Button>
+        <Label Content="Pasta base dos backups das _famílias" Margin="0,18,0,5" Target="{Binding ElementName=FamilyRootField}" />
+        <TextBox x:Name="FamilyRootField" TabIndex="3" ToolTip="Pasta de backups das famílias · Alt+F" AutomationProperties.AutomationId="family-backup-folder" AutomationProperties.Name="Pasta dos backups das famílias" AutomationProperties.HelpText="Pasta base onde será criada Backup-NomeDoProjeto/familias. Digite o caminho completo ou escolha uma pasta. Alt+F para editar." />
+        <Button x:Name="BrowseFamiliesButton" TabIndex="4" Style="{StaticResource Browse}" HorizontalAlignment="Right" Margin="0,6,0,0" Click="BrowseFamilies" AutomationProperties.AutomationId="browse-family-backups" AutomationProperties.Name="Escolher pasta dos backups das famílias" AutomationProperties.HelpText="Abrir o seletor de pastas. Alt+M." ToolTip="Escolher pasta dos backups das famílias · Alt+M"><TextBlock Text="Escolher pasta" TextDecorations="Underline" /></Button>
+        <TextBlock x:Name="StatusText" Margin="0,8,0,0" FontSize="11" TextWrapping="Wrap" AutomationProperties.Name="Status da configuração" AutomationProperties.LiveSetting="Polite" Text="Backups automáticos antes e depois de salvar no Revit." />
+      </StackPanel>
+      <Grid Grid.Row="4" Margin="0,20,0,0">
+        <TextBlock FontSize="9" MaxWidth="315" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap"><Run Text="© 2026 KOBB. Todos os direitos reservados. Para mais detalhes e informações, consulte a página " /><Hyperlink NavigateUri="https://kobbstudio.com.br" RequestNavigate="OpenWebsite" AutomationProperties.Name="Abrir site da KOBB Studio">kobbstudio.com.br.</Hyperlink></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"><Button TabIndex="5" Content="_Cancelar" IsCancel="True" Click="Cancel" AutomationProperties.Name="Cancelar configuração" /><Button x:Name="ConfirmButton" TabIndex="6" Content="C_oncluir" IsDefault="True" Background="Black" Foreground="White" Click="Confirm" AutomationProperties.Name="Concluir configuração" AutomationProperties.HelpText="Salvar a configuração e ativar os backups automáticos deste projeto." /></StackPanel>
+      </Grid>
+    </Grid>
+    <Border Grid.RowSpan="2" BorderBrush="#A6A6A6" BorderThickness="1" IsHitTestVisible="False" Panel.ZIndex="100" />
+  </Grid>
+</Window>

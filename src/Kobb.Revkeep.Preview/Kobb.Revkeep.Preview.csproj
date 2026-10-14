@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>$(RevkeepTargetFramework)</TargetFramework><UseWPF>true</UseWPF><OutputType>WinExe</OutputType></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Kobb.Revkeep.UI/Kobb.Revkeep.UI.csproj" /></ItemGroup>
+</Project>
