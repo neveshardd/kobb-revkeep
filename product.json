@@ -19,7 +19,7 @@
     "files":  [
                   {
                       "path":  "Kobb.Revkeep.Core.dll",
-                      "sha256":  "3D1F96D09EDCA134AD5FA074A21008660888BAC23DA621A0E1CD3CE4901F7B5F"
+                      "sha256":  "4A0477CFD2F8869BCC4B58689D17314F906A7AE87326CABD0CBCC78B177D7EBF"
                   },
                   {
                       "path":  "Kobb.Revkeep.deps.json",
@@ -27,11 +27,11 @@
                   },
                   {
                       "path":  "Kobb.Revkeep.dll",
-                      "sha256":  "9F6D0A8969E4CEC72087041C2112D2189DA43F7118C1A13449CCB8CD36384CBD"
+                      "sha256":  "5A2071DE6C382C7E89AB25029B97E6EBA90B9D5FED0E5CB8832F0975D2887088"
                   },
                   {
                       "path":  "Kobb.Revkeep.UI.dll",
-                      "sha256":  "3FD039E97CF8F6E77CE4DAD8BD9BC2A36EEB867F14FADDC3ACF3885B0E316195"
+                      "sha256":  "80BED223FB7E334647D6C50B2C6436AA0CCC1098BA04BCACF801C4F0853CF8D0"
                   }
               ]
 }
